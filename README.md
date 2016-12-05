@@ -1,12 +1,6 @@
-## Application Template - Angular
+## Illidari Shadows App
 
-This template intended for quickly generating test-driven assignments for The Iron Yard. But you can just use it for whatever!
-
-Includes:
-
-* Mocha
-* Chai
-* Angular
+This is the homebase for all things IS! Any devs, feel free to open it up and look around (or fix bugs for me!). Enjoy and happy raiding :)
 
 ## Instructions
 
