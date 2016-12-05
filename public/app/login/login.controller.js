@@ -13,7 +13,7 @@
     activate();
 
     function activate() {
-      $rootScope.mainState = 'agora';
+      $rootScope.mainState = 'login';
       console.log($rootScope.mainState);
     }
 
