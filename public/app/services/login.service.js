@@ -21,11 +21,8 @@
                 cache: true,
                 url: url + '/users/' + username
             });
-
-          
           });
         }
-
       };
 
       return {
