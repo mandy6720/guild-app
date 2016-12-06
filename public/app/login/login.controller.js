@@ -19,7 +19,7 @@
     }
 
     function login() {
-      $http.get('http://illidari-shadows.herokuapp.com/api/users').then(function(res) {
+      $http.get('https://illidari-shadows.herokuapp.com/api/users').then(function(res) {
         console.log(res);
       })
     }
