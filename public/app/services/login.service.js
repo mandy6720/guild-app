@@ -12,17 +12,17 @@
         getAllUsers: function(username){
           var username = username;
           return $q(function (resolve) {
-            function() {
-              var httpCache = $cacheFactory.get('$http');
-              httpCache.removeAll();
+            
+            var httpCache = $cacheFactory.get('$http');
+            httpCache.removeAll();
 
-              return $http(requestParams({
-                  method: 'GET',
-                  cache: true,
-                  url: url + '/users/' + username
-              }));
+            return $http(requestParams({
+                method: 'GET',
+                cache: true,
+                url: url + '/users/' + username
+            }));
 
-            }
+          
           });
         }
 
