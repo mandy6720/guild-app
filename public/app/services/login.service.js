@@ -10,18 +10,12 @@
       var users = {
 
         getAllUsers: function(){
-          return $q(function (resolve) {
-            
-            var httpCache = $cacheFactory.get('$http');
-            httpCache.removeAll();
-
-            return $http({
-                method: 'GET',
-                cache: true,
-                url: url + '/users'
-            });
-          });
+          return $http({
+            method: 'GET',
+            cache: true,
+            url: url + '/users'
         }
+
       };
 
       return {
