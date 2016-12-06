@@ -7,10 +7,16 @@ body {
     background-size: cover;
     height: 100vh;
     position: relative;
+    font-family: 'Raleway', sans-serif;
 }
+h1,h2,h3,h4,h5,h6 {
+	font-family: 'Oswald', sans-serif;
+}
+
 /* Login Styles */
 .login-title {
 	text-align: center;
+	margin-bottom: 8px;
 }
 .login-container {
 	position: absolute;
