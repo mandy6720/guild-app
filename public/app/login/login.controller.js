@@ -21,7 +21,7 @@
     function login() {
       $http.get({
         method: 'GET',
-        url: '/users'
+        url: 'http://illidari-shadows.herokuapp.com/api/users'
       }).then(function(res){
         console.log(res)
       })
