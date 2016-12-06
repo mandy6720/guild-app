@@ -19,7 +19,7 @@
             return $http({
                 method: 'GET',
                 cache: true,
-                url: url + '/users/' + username
+                url: url + '/users/'
             });
           });
         }
