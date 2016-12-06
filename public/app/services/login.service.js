@@ -16,11 +16,11 @@
             var httpCache = $cacheFactory.get('$http');
             httpCache.removeAll();
 
-            return $http(requestParams({
+            return $http({
                 method: 'GET',
                 cache: true,
                 url: url + '/users/' + username
-            }));
+            });
 
           
           });
