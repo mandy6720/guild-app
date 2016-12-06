@@ -5,7 +5,7 @@
     .module('guildApp')
     .factory('loginService', loginService);
 
-    function loginService($q, $cacheFactory) {
+    function loginService($q, $cacheFactory, $http) {
       var url = 'https://illidari-shadows.herokuapp.com/api/';
       var users = {
 
