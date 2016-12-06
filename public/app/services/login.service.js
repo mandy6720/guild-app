@@ -14,7 +14,8 @@
             method: 'GET',
             cache: true,
             url: url + '/users'
-        })
+          });
+        }
 
       };
 
