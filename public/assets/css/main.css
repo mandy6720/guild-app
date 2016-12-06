@@ -1,0 +1,31 @@
+/* Main Styles */
+body { 
+    background-image: url('http://gameranx.com/wp-content/uploads/2016/03/World-of-Warcraft-Legion-4K-Wallpaper-1.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+    background-size: cover;
+    height: 100vh;
+    position: relative;
+}
+/* Login Styles */
+.login-title {
+	text-align: center;
+}
+.login-container {
+	position: absolute;
+  text-align: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 30%;
+  height: 30%;
+  margin: auto;
+}
+#inputEmail1, 
+#inputPassword1 {
+	background: rgba(0,0,0,.6);
+	color: #eee;
+	margin-bottom: 8px;
+}
