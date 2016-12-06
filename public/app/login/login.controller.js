@@ -19,11 +19,8 @@
     }
 
     function login() {
-      $http.get({
-        method: 'GET',
-        url: 'http://illidari-shadows.herokuapp.com/api/users'
-      }).then(function(res){
-        console.log(res)
+      $http.get('http://illidari-shadows.herokuapp.com/api/users').then(function(res) {
+        console.log(res);
       })
     }
 
