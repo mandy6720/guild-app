@@ -64,7 +64,7 @@ router.route('/users')
   // User by name
 router.route('/users/:user_name')
   .get(function(req, res) {
-    User.find({make: req.params.user_name}, function(err, user) {
+    User.find({username: req.params.user_name}, function(err, user) {
       if (err) {
         res.send(err);
       }
