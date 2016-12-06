@@ -19,6 +19,7 @@
     }
 
     function login() {
+      console.log('hi')
       loginService.users.getAllUsers().then(function(res) {
         console.log(res)
       })
