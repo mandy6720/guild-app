@@ -60,6 +60,17 @@ router.route('/users')
       res.json(users);
     });
   });
+
+  // User by name
+router.route('/users/:user_name')
+  .get(function(req, res) {
+    User.findById(req.params.user_name, function(err, user) {
+      if (err) {
+        res.send(err);
+      }
+      res.json(user);
+    });
+  });
   
 // // Use the BnetStrategy within Passport.
 // passport.use(new BnetStrategy({

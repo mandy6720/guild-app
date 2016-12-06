@@ -6,7 +6,7 @@
     .controller('LoginController', LoginController);
 
   /** @ngInject */
-  function LoginController($state, $rootScope, $http) {
+  function LoginController($state, $rootScope, $http, loginService) {
     var vm = this;
     vm.activate = activate;
     vm.login = login;
@@ -19,8 +19,8 @@
     }
 
     function login() {
-      $http.get('https://illidari-shadows.herokuapp.com/api/users').then(function(res) {
-        console.log(res);
+      loginService.users.getAllUsers().then(function(res) {
+        console.log(res)
       })
     }
 
