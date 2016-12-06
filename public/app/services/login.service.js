@@ -9,8 +9,7 @@
       var url = 'https://illidari-shadows.herokuapp.com/api/';
       var users = {
 
-        getAllUsers: function(username){
-          var username = username;
+        getAllUsers: function(){
           return $q(function (resolve) {
             
             var httpCache = $cacheFactory.get('$http');
@@ -19,7 +18,7 @@
             return $http({
                 method: 'GET',
                 cache: true,
-                url: url + '/users/'
+                url: url + '/users'
             });
           });
         }
