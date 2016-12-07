@@ -6,7 +6,8 @@
     .factory('loginService', loginService);
 
     function loginService($q, $cacheFactory, $http) {
-      var url = 'https://illidari-shadows.herokuapp.com/api/';
+      var url = 'https://illidari-shadows.herokuapp.com/api';
+      var devUrl = 'http://localhost:5000/api'
       var users = {
 
         getAllUsers: function(){
@@ -14,6 +15,13 @@
             method: 'GET',
             cache: true,
             url: url + '/users'
+          });
+        },
+        getUserByUsername: function(username) {
+          return $http({
+            method: 'GET',
+            cache: true,
+            url: url + '/users/' + username
           });
         }
 

@@ -1,19 +1,21 @@
 /* Main Styles */
 body { 
-    background-image: url('http://gameranx.com/wp-content/uploads/2016/03/World-of-Warcraft-Legion-4K-Wallpaper-1.jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center; 
-    background-size: cover;
-    height: 100vh;
-    position: relative;
-    font-family: 'Raleway', sans-serif;
+  position: relative;
+  font-family: 'Raleway', sans-serif;
 }
 h1,h2,h3,h4,h5,h6 {
 	font-family: 'Oswald', sans-serif;
 }
 
 /* Login Styles */
+.login-background {
+  background-image: url('http://gameranx.com/wp-content/uploads/2016/03/World-of-Warcraft-Legion-4K-Wallpaper-1.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center; 
+  background-size: cover;
+  height: 100vh;
+}
 .login-title {
 	text-align: center;
 	margin-bottom: 8px;

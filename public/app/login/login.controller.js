@@ -6,7 +6,7 @@
     .controller('LoginController', LoginController);
 
   /** @ngInject */
-  function LoginController($state, $rootScope, $http, loginService) {
+  function LoginController($state, $scope, $rootScope, $http, $filter, loginService) {
     var vm = this;
     vm.activate = activate;
     vm.login = login;
@@ -14,16 +14,24 @@
     activate();
 
     function activate() {
-      $rootScope.mainState = 'login';
-      console.log($rootScope.mainState);
+      console.log('activated')
     }
 
     function login() {
-      loginService.users.getAllUsers().then(function(res) {
-        var validUser = res.data.filter(function(item) {
-          return item.username == vm.user.username;
-        })
-        console.log(res.data, validUser)
+      loginService.users.getUserByUsername(vm.username).then(function(res) {
+        console.log(res.data);
+        if (res.data.length !== 0) {
+          vm.noExisitingUser = false;
+          var validPassword = res.data[0].password == vm.password;
+          if (validPassword) {
+            $rootScope.loggedInUser = res.data[0];
+            $state.go('home');
+          } else {
+            vm.wrongPassword = 'That password is incorrect';
+          }
+        } else {
+          vm.noExisitingUser = 'There is no user by that name';
+        }
       })
     }
 

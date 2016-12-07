@@ -1,8 +1,10 @@
-
-<div class="login-container">
-	<h3 class="login-title">Speak friend and enter</h3>
-	    <input type="email" class="form-control" id="inputEmail1" placeholder="Username" ng-model="vm.user.id">
-	  	
-	    <input type="password" class="form-control" id="inputPassword1" placeholder="Password" ng-model="vm.user.password">
-	  <button ng-click="vm.login()" class="btn btn-default">Let's go!</button>
+<div class="login-background">
+	<div class="login-container">
+		<h3 class="login-title">Speak friend and enter</h3>
+		    <input type="text" class="form-control" id="inputEmail1" placeholder="Username" ng-model="vm.username">
+		    <span ng-if="vm.noExisitingUser">{{vm.noExisitingUser}}</span>
+		    <input type="password" class="form-control" id="inputPassword1" placeholder="Password" ng-model="vm.password">
+		    <span ng-if="vm.wrongPassword">{{vm.wrongPassword}}</span>
+		  <button ng-click="vm.login()" class="btn btn-default">Let's go!</button>
+	</div>
 </div>
