@@ -19,9 +19,11 @@
     }
 
     function login() {
-      console.log('hi')
       loginService.users.getAllUsers().then(function(res) {
-        console.log(res)
+        var validUser = res.filter(function(item) {
+          return item.user.id == vm.user.username;
+        })
+        console.log(validUser)
       })
     }
 
