@@ -20,9 +20,9 @@
 
     function login() {
       loginService.users.getAllUsers().then(function(res) {
-        var validUser = res.filter(function(item) {
-          return item.user.id == vm.user.username;
-        })
+        // var validUser = res.filter(function(item) {
+        //   return item.user.id == vm.user.username;
+        // })
         console.log(validUser)
       })
     }
