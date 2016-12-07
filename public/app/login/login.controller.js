@@ -21,7 +21,7 @@
     function login() {
       loginService.users.getAllUsers().then(function(res) {
         var validUser = res.data.filter(function(item) {
-          return item.user.id == vm.user.username;
+          return item.username == vm.user.username;
         })
         console.log(res.data, validUser)
       })
