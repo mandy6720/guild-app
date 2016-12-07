@@ -23,7 +23,7 @@
         // var validUser = res.filter(function(item) {
         //   return item.user.id == vm.user.username;
         // })
-        console.log(validUser)
+        console.log(res)
       })
     }
 
