@@ -18,7 +18,7 @@
       controllerAs: 'vm'
     })
     .state('home', {
-      url: '/dashboard',
+      url: '/home',
       templateUrl: 'app/dashboard/dashboard.html',
       controller: 'DashboardController',
       controllerAs: 'vm'
