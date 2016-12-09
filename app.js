@@ -76,6 +76,10 @@ router.use(function(req, res, next) {
     next();
 });
 
+app.get('/keys', function(){
+  console.log('clientID: BNET_ID, clientSecret: BNET_SECRET')
+})
+
 app.get('/auth/bnet',
   passport.authenticate('bnet'));
 
