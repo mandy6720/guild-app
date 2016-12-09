@@ -11,8 +11,8 @@ var BnetStrategy = require('passport-bnet').Strategy;
 var User = require('./node-api/models/user');
 
 // Passport config
-var BNET_ID = process.env.BNET_ID;
-var BNET_SECRET = process.env.BNET_SECRET;
+var BNET_ID = process.env.BNET_ID1;
+var BNET_SECRET = process.env.BNET_SECRET1;
 
 passport.serializeUser(function(user, done) {
   done(null, user);
@@ -72,7 +72,6 @@ app.use('/api', router);
 // middleware to use for all requests
 router.use(function(req, res, next) {
     console.log('FYI... Processing inc!');
-    console.log('req', req)
     next();
 });
 
