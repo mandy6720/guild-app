@@ -140,11 +140,9 @@ app.get("/", function(req, res){
   //   res.send('nope', req)
   //   res.sendFile(path.join(__dirname, 'public/index.html'));
   // }
-  res.sendFile(path.join(__dirname, 'public/index.html'))
-})
-
-app.get("/home", function(req, res){
-  res.render('home')
+  res.sendFile(path.join(__dirname, 'public/index.html'));
+  res.send(res);
+  res.json(res)
 })
 
 module.exports = app;
