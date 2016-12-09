@@ -76,10 +76,6 @@ router.use(function(req, res, next) {
     next();
 });
 
-app.get('/keys', function(){
-  console.log('clientID: BNET_ID, clientSecret: BNET_SECRET')
-})
-
 app.get('/auth/bnet',
   passport.authenticate('bnet'));
 
@@ -140,6 +136,7 @@ app.get("/", function(req, res){
     output += '<a href="/logout">Logout</a>';
     res.send(output);
   } else {
+    res.send('nope', req)
     res.sendFile(path.join(__dirname, 'public/index.html'));
   }
   //res.sendFile(path.join(__dirname, 'public/index.html'))
