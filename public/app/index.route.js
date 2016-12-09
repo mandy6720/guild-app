@@ -9,6 +9,11 @@
 
   /** @ngInject */
   function routerConfig($stateProvider, $urlRouterProvider, $locationProvider) {
+    $locationProvider.html5Mode({
+      enabled: true,
+      requireBase: true
+    });
+
     $stateProvider
 
     .state('login', {
