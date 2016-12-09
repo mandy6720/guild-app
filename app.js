@@ -28,7 +28,7 @@ passport.use(
     clientID: BNET_ID,
     clientSecret: BNET_SECRET,
     scope: "wow.profile",
-    callbackURL: "/auth/bnet/callback" },
+    callbackURL: "https://illidari-shadows.herokuapp.com/auth/bnet/callback" },
     function(accessToken, refreshToken, profile, done) {
       process.nextTick(function () {
       return done(null, profile);
