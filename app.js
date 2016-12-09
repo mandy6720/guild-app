@@ -128,19 +128,23 @@ router.route('/users/:user_name')
 //Serve files
 app.use(express.static(path.join(__dirname, 'public')));
 app.get("/", function(req, res){
-  if(req.isAuthenticated()) {
-    var output = '<h1>Express OAuth Test</h1>' + req.user.id + '<br>';
-    if(req.user.battletag) {
-      output += req.user.battletag + '<br>';
-    }
-    output += '<a href="/logout">Logout</a>';
-    res.send(output);
-    res.send('yep', req)
-  } else {
-    res.send('nope', req)
-    res.sendFile(path.join(__dirname, 'public/index.html'));
-  }
-  //res.sendFile(path.join(__dirname, 'public/index.html'))
+  // if(req.isAuthenticated()) {
+  //   var output = '<h1>Express OAuth Test</h1>' + req.user.id + '<br>';
+  //   if(req.user.battletag) {
+  //     output += req.user.battletag + '<br>';
+  //   }
+  //   output += '<a href="/logout">Logout</a>';
+  //   res.send(output);
+  //   res.send('yep', req)
+  // } else {
+  //   res.send('nope', req)
+  //   res.sendFile(path.join(__dirname, 'public/index.html'));
+  // }
+  res.sendFile(path.join(__dirname, 'public/index.html'))
+})
+
+app.get("/home", function(req, res){
+  res.render('home')
 })
 
 module.exports = app;
