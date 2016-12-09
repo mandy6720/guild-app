@@ -86,7 +86,7 @@ app.get('/auth/bnet',
 app.get('/auth/bnet/callback',
   passport.authenticate('bnet', { failureRedirect: '/' }),
   function(req, res){
-    res.redirect('/home');
+    res.redirect('/');
   });
 
 //Test route
@@ -132,7 +132,17 @@ router.route('/users/:user_name')
 //Serve files
 app.use(express.static(path.join(__dirname, 'public')));
 app.get("/", function(req, res){
-  res.sendFile(path.join(__dirname, 'public/index.html'))
+  if(req.isAuthenticated()) {
+    var output = '<h1>Express OAuth Test</h1>' + req.user.id + '<br>';
+    if(req.user.battletag) {
+      output += req.user.battletag + '<br>';
+    }
+    output += '<a href="/logout">Logout</a>';
+    res.send(output);
+  } else {
+    res.sendFile(path.join(__dirname, 'public/index.html'));
+  }
+  //res.sendFile(path.join(__dirname, 'public/index.html'))
 })
 
 module.exports = app;
