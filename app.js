@@ -11,8 +11,8 @@ var BnetStrategy = require('passport-bnet').Strategy;
 var User = require('./node-api/models/user');
 
 // Passport config
-var BNET_ID = process.env.BID;
-var BNET_SECRET = process.env.BSECRET;
+var BNET_ID = process.env.BNET_ID;
+var BNET_SECRET = process.env.BNET_SECRET;
 
 passport.serializeUser(function(user, done) {
   done(null, user);
