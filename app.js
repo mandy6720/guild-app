@@ -3,8 +3,38 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var passport = require('passport');
+
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
+
 var BnetStrategy = require('passport-bnet').Strategy;
 var User = require('./node-api/models/user');
+
+// Passport config
+var BNET_ID = process.env.BNET_ID;
+var BNET_SECRET = process.env.BNET_SECRET;
+
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+
+passport.deserializeUser(function(obj, done) {
+  done(null, obj);
+});
+
+// Use the BnetStrategy within Passport.
+passport.use(
+  new BnetStrategy({ 
+    clientID: BNET_ID,
+    clientSecret: BNET_SECRET,
+    scope: "wow.profile",
+    callbackURL: "/auth/bnet/callback" },
+    function(accessToken, refreshToken, profile, done) {
+      process.nextTick(function () {
+      return done(null, profile);
+    });
+  })
+);
 
 var app = express();
 
@@ -12,6 +42,19 @@ var app = express();
 //lets us grab data from body of POST
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+
+// configure Express
+app.use(cookieParser());
+app.use(session({ 
+  secret: 'blizzard',
+  saveUninitialized: true,
+  resave: true 
+}));
+
+// Initialize Passport!  Also use passport.session() middleware, to support
+// persistent login sessions (recommended).
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Connect to DB
 mongoose.connect('mongodb://mandy6720:Boogers1@ds119598.mlab.com:19598/guildapp');
@@ -29,13 +72,23 @@ app.use('/api', router);
 // middleware to use for all requests
 router.use(function(req, res, next) {
     console.log('FYI... Processing inc!');
+    console.log('req', req)
     next();
 });
 
+app.get('/auth/bnet',
+  passport.authenticate('bnet'));
+
+app.get('/auth/bnet/callback',
+  passport.authenticate('bnet', { failureRedirect: '/' }),
+  function(req, res){
+    res.redirect('/home');
+  });
+
 //Test route
-router.get('/', function(req, res) {
-  res.json({message: 'Welcome to our API!'});
-});
+// router.get('/', function(req, res) {
+//   res.json({message: 'Welcome to our API!'});
+// });
 
 // Users route
 router.route('/users')
@@ -71,28 +124,6 @@ router.route('/users/:user_name')
       res.json(user);
     });
   });
-
-  
-// // Use the BnetStrategy within Passport.
-// passport.use(new BnetStrategy({
-//     clientID: process.env.BNET_ID,
-//     clientSecret: process.env.BNET_SECRET,
-//     callbackURL: process.env.PORT + "/auth/bnet/callback",
-//     region: "us"
-// }, function(accessToken, refreshToken, profile, done) {
-//     return done(null, profile);
-//     console.log(accessToken, refreshToken, profile, done)
-// }));
-
-// // Auth requests
-// app.get('/auth/bnet',
-//     passport.authenticate('bnet'));
-
-// app.get('/auth/bnet/callback',
-//     passport.authenticate('bnet', { failureRedirect: '/' }),
-//     function(req, res){
-//         res.redirect('/home');
-//     });
 
 //Serve files
 app.use(express.static(path.join(__dirname, 'public')));
