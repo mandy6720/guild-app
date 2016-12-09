@@ -135,6 +135,7 @@ app.get("/", function(req, res){
     }
     output += '<a href="/logout">Logout</a>';
     res.send(output);
+    res.send('yep', req)
   } else {
     res.send('nope', req)
     res.sendFile(path.join(__dirname, 'public/index.html'));

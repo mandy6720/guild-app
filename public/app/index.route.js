@@ -9,6 +9,7 @@
 
   /** @ngInject */
   function routerConfig($stateProvider, $urlRouterProvider, $locationProvider) {
+    $httpProvider.interceptors.push('httpInterceptor')
     $stateProvider
 
     .state('login', {
