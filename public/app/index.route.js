@@ -23,7 +23,7 @@
       controller: 'DashboardController',
       controllerAs: 'vm'
     });
-
+    $urlRouterProvider.when('/home', '/home');
     $urlRouterProvider.otherwise('/');
   }
 })();
