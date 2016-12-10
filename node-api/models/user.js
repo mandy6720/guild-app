@@ -5,7 +5,8 @@ var userSchema = new Schema({
   username: String,
   password: String,
   email: String,
-  auth: Boolean || false
+  auth: Boolean,
+  user: Schema.Types.Mixed || null;
 });
 
 module.exports = mongoose.model('User', userSchema);
