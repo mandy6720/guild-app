@@ -82,6 +82,7 @@ app.get('/auth/bnet',
 app.get('/auth/bnet/callback',
   passport.authenticate('bnet', { failureRedirect: '/' }),
   function(req, res){
+    res.json('user', req, res)
     res.redirect('/home');
   });
 
@@ -140,6 +141,7 @@ app.get("/", function(req, res){
   //   res.send('nope', req)
   //   res.sendFile(path.join(__dirname, 'public/index.html'));
   // }
+  console.log(req,res)
   res.sendFile(path.join(__dirname, 'public/index.html'));
 })
 
