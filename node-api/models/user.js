@@ -5,7 +5,6 @@ var userSchema = new Schema({
   username: String,
   password: String,
   email: String,
-  auth: Boolean,
   user: Schema.Types.Mixed || null;
 });
 
