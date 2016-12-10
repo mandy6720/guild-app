@@ -10,7 +10,6 @@
     var vm = this;
     vm.activate = activate;
     vm.login = login;
-    vm.loginBnet = loginBnet;
 
     activate();
 
@@ -35,10 +34,6 @@
           vm.noExisitingUser = 'There is no user by that name';
         }
       })
-    }
-
-    function loginBnet() {
-      $http.get('/auth/bnet')
     }
 
   }
