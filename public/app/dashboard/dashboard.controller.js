@@ -13,10 +13,11 @@
     activate();
 
     function activate() {
+      console.log($rootScope.loggedInUser)
       if (!$rootScope.loggedInUser) {
         $state.go('login');
       }
-      loginService.user.getUserByBnetId($rootScope.loggedInUser.id).then(function(res) {
+      loginService.user.getUserByBnetId($rootScope.loggedInUser).then(function(res) {
         if (!res.length) {
           $state.go('register');
         } else {
