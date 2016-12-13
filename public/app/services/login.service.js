@@ -23,6 +23,13 @@
             cache: true,
             url: url + '/users/' + username
           });
+        },
+        getCurrentUser: function() {
+          return $http({
+            method: 'GET',
+            cache: true,
+            url: url + '/current_user'
+          });
         }
 
       };

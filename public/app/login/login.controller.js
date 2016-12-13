@@ -19,7 +19,7 @@
       var path = $location.url();
       console.log('searchObject', searchObject);
       console.log('path', path);
-      $http.get('/api/current_user').then(function(res){
+      loginService.users.getCurrentUser().then(function(res){
         console.log(res)
       })
     }
