@@ -138,14 +138,18 @@ router.route('/users/:user_name')
   });
 
 // Current user
-router.get('/current_user', isAuthenticated, function(req, res) {
+router.route('/current_user')
+  .get(function(req, res) {
+    if (err) {
+      res.send(err);
+    }  
     var data = {
-        data: req.user
+      data: req.user
     };
     res.send({
         data: data
     });
-});
+  });
 
 //Serve files
 app.use(express.static(path.join(__dirname, 'public')));
