@@ -138,8 +138,7 @@ router.route('/current_user')
     if (err) {
         res.send(err);
       }
-      res.json(req.user);
-    });
+      res.json(req);
   });
 
 //Serve files
