@@ -130,16 +130,24 @@ router.route('/users')
     });
   });
 
-  // User by name
-router.route('/users/:user_name')
+  // User by id
+router.route('/users/:user_id')
   .get(function(req, res) {
-    User.find({username: req.params.user_name}, function(err, user) {
+    User.find({username: req.params.user_id}, function(err, user) {
       if (err) {
         res.send(err);
       }
       res.json(user);
     });
-  });
+  })
+  .delete( function (req, res) {     
+    User.remove({
+      _id: req.params.user_id
+    }, function (err, user) {
+      if (err) return res.send(err);
+      res.json({ message: 'Deleted' });
+    });
+  });;
 
 // Current user
 router.route('/current_user')
