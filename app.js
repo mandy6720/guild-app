@@ -147,17 +147,6 @@ router.route('/users/:user_id')
     });
   });
 
-// User by id
-router.route('/users/bnet_id:id')
-  .get(function(req, res) {
-    User.find({bnet_id: req.params.id}, function(err, user) {
-      if (err) {
-        res.send(err);
-      }
-      res.json(user);
-    });
-  });
-
 // Login
 router.route('/login')
   .get(function(req, res) {

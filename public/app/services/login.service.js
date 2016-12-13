@@ -17,13 +17,6 @@
             url: url + '/users'
           });
         },
-        getUserByBnetId: function(bnet_id) {
-          return $http({
-            method: 'GET',
-            cache: true,
-            url: url + '/users/bnet_id/' + bnet_id
-          });
-        },
         getCurrentUser: function() {
           return $http({
             method: 'GET',

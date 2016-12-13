@@ -14,10 +14,8 @@
 
     function activate() {
       console.log($rootScope.loggedInUser);
-      loginService.user.getUserByBnetId($rootScope.loggedInUser.id).then(function(res) {
-        console.log(res); 
-      }, function(res) {
-        $state.go('register');
+      loginService.user.getAllUsers().then(function(res) {
+        console.log(res.data); 
       });
     }
 
