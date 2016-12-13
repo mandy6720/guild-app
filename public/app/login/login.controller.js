@@ -24,9 +24,8 @@
 
     function checkGuild(token) {
       loginService.user.getCharacters(token).then(function(res) {
-        console.log(res.data)
-        var chars = res.data;
-        var inGuild = res.data.filter(function(char) {
+        var chars = res.characters;
+        var inGuild = chars.filter(function(char) {
           return char.guild == "Illidari Shadows" && char.guildRealm =="Dalaran"
         });
         if (inGuild) {
