@@ -20,7 +20,7 @@
       });
     }
 
-    function checkGuild() {
+    function login() {
       loginService.user.getCharacters().then(function(res) {
         console.log(res)
       })
