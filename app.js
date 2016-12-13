@@ -19,13 +19,13 @@ var user, profile;
 var BNET_ID = process.env.BNET_ID;
 var BNET_SECRET = process.env.BNET_SECRET;
 
-passport.serializeUser(function(user, done) {
-  done(null, user);
-});
+// passport.serializeUser(function(user, done) {
+//   done(null, user);
+// });
 
-passport.deserializeUser(function(obj, done) {
-  done(null, obj);
-});
+// passport.deserializeUser(function(obj, done) {
+//   done(null, obj);
+// });
 
 
 
@@ -101,17 +101,12 @@ app.get('/auth/bnet/callback',
     res.redirect('/');
   });
 
-//Test route
-// router.get('/', function(req, res) {
-//   res.json({message: 'Welcome to our API!'});
-// });
-
 // ROUTES
 
 // Users route
 router.route('/users')
   .post(function(req, res) {
-    var user = new User(); // new instance of vehicle
+    var user = new User(); // new instance of user
     user.bnet_id = req.body.bnet_id;
     user.profile = req.body.profile;
 
