@@ -6,7 +6,7 @@
     .controller('LoginController', LoginController);
 
   /** @ngInject */
-  function LoginController($state, $scope, $rootScope, $http, $filter, loginService) {
+  function LoginController($state, $scope, $rootScope, $http, $filter, $location, loginService) {
     var vm = this;
     vm.activate = activate;
     vm.login = login;
@@ -15,7 +15,10 @@
 
     function activate() {
       console.log('activated');
-
+      var searchObject = $location.search();
+      var path = $location.url();
+      console.log('searchObject', searchObject);
+      console.log('path', path)
     }
 
     function login() {
