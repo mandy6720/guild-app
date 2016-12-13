@@ -176,6 +176,7 @@ app.get("/", function(req, res){
     req.session.destroy();
     res.sendFile(path.join(__dirname, 'public/dashboard/dashboard.html'));
   } else {
+    req.session.destroy();
     res.sendFile(path.join(__dirname, 'public/login/login.html'));
   }
 })
