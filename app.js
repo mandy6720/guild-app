@@ -60,11 +60,11 @@ app.use(bodyParser.json());
 
 // configure Express
 app.use(cookieParser());
-app.use(session({ 
-  secret: 'blizzard',
-  saveUninitialized: false,
-  resave: false 
-}));
+// app.use(session({ 
+//   secret: 'blizzard',
+//   saveUninitialized: false,
+//   resave: false 
+// }));
 
 // Initialize Passport!  Also use passport.session() middleware, to support
 // persistent login sessions (recommended).
