@@ -30,12 +30,19 @@
             cache: true,
             url: url + '/current_user'
           });
+        },
+        getCharacters: function(token) {
+          return $http({
+            method: 'GET',
+            cache: true,
+            url: 'https://us.api.battle.net/wow/user/characters?access_token=' + token
+          });
         }
 
       };
 
       return {
-        users: users
+        user: users
       };
     }
 

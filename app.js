@@ -150,7 +150,7 @@ router.route('/current_user')
       };
       res.send({data: data.user});
     } else {
-      res.send({msg: 'no user'})
+      res.send({msg: 'nope'})
     }
   });
 
