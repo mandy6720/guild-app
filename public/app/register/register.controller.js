@@ -41,7 +41,7 @@
         vm.errMsg = false;
         var profile = {
           nickname: vm.nickname,
-          main: vm.main
+          main: vm.main.name
         }
         var userObj = {
           bnet_id: $rootScope.loggedInUser.id,
