@@ -41,13 +41,16 @@
         vm.errMsg = false;
         var profile = {
           nickname: vm.nickname,
-          main: vm.main.name
+          main: vm.main
         }
         var userObj = {
           bnet_id: $rootScope.loggedInUser.id,
           profile: profile
         }
-        loginService.user.createUser(userObj)//.then(function(res) {console.log(res)})
+        loginService.user.createUser(userObj).then(function(res) {
+          console.log(res);
+          $state.go('home');
+        });
       }
     }
 
