@@ -9,19 +9,21 @@
   function LoginController($state, $scope, $rootScope, $http, $filter, $location, loginService) {
     var vm = this;
     vm.activate = activate;
-    vm.login = login;
 
     activate();
 
     function activate() {
-      console.log('activated');
       loginService.user.getCurrentUser().then(function(res){
-        console.log(res.data);
+        console.log(res.data.data);
+        if (res.data.data.token) {
+          $rootScope.loggedInUser = res.data.data;
+          checkGuild($rootScope.loggedInUser.token);
+        }
       });
     }
 
-    function login() {
-      loginService.user.getCharacters().then(function(res) {
+    function checkGuild(token) {
+      loginService.user.getCharacters(token).then(function(res) {
         console.log(res)
       })
     }
