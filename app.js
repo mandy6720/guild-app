@@ -23,6 +23,8 @@ passport.deserializeUser(function(obj, done) {
   done(null, obj);
 });
 
+
+
 // Use the BnetStrategy within Passport.
 passport.use(
   new BnetStrategy({ 
@@ -136,9 +138,11 @@ router.route('/users/:user_name')
 router.route('/current_user')
   .get(function(req, res) {
     if (err) {
-        res.send(err);
-      }
-      res.json(req);
+      res.send(err);
+    } else if (req.isAuthenticated()) {
+      var data = req.user;
+      res.json(data);
+    }
   });
 
 //Serve files
