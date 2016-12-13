@@ -33,7 +33,7 @@
           console.log(inGuild);
           $state.go('home');
         } else {
-          console.log('try again', chars);
+          vm.errMsg = 'You don\'t have any characters in this guild';
         }
       })
     }

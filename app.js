@@ -110,15 +110,13 @@ app.get('/auth/bnet/callback',
 router.route('/users')
   .post(function(req, res) {
     var user = new User(); // new instance of vehicle
-    user.username = req.body.username;
-    user.password = req.body.password;
-    user.email = req.body.email;
+    user.battletag = req.body.battletag;
 
-    user.save(function(err) {
+    user.save(function(err, user) {
       if (err) {
         res.send(err);
       }
-      res.json({message: 'User was successfully created!'});
+      res.json(user);
     });
   })
   .get(function(req, res) {
