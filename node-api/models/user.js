@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 var userSchema = new Schema({
   bnet_id: Number,
-  profile: Schema.Types.Mixed
+  profile: {}
 });
 
 module.exports = mongoose.model('User', userSchema);

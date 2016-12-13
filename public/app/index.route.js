@@ -18,7 +18,7 @@
       controllerAs: 'vm'
     })
     .state('register', {
-      url: '/',
+      url: '/register',
       templateUrl: 'app/register/register.html',
       controller: 'RegisterController',
       controllerAs: 'vm'

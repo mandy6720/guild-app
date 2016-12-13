@@ -106,11 +106,14 @@ app.get('/auth/bnet/callback',
 //   res.json({message: 'Welcome to our API!'});
 // });
 
+// ROUTES
+
 // Users route
 router.route('/users')
   .post(function(req, res) {
     var user = new User(); // new instance of vehicle
-    user.battletag = req.body.battletag;
+    user.bnet_id = req.body.bnet_id;
+    user.profile = req.body.profile;
 
     user.save(function(err, user) {
       if (err) {
@@ -147,7 +150,7 @@ router.route('/users/:user_id')
     });
   });
 
-// User by id
+// User by Bnet id
 router.route('/users/bnet_id/:id')
   .get(function(req, res) {
     User.find({bnet_id: req.params.id}, function(err, user) {

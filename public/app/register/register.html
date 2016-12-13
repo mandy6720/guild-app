@@ -1,3 +1,24 @@
-<div class="register-container">
-	<h3 class="register-title">Register</h3>
+<div class="register-background img-bg">
+	<div class="register-container clearfix">
+		<h3 class="register-title">Register</h3>
+		<form>
+		  <div class="form-group">
+		  	<h5 class="nickname-title">Choose your nickname</h5>
+		    <input type="text" class="form-control nickname-input" ng-model="vm.nickname" placeholder="Nickname">
+		  </div>
+		  <h5>Choose your main</h5>
+		  <div class="char-info-tiles" ng-repeat="char in vm.chars | orderObjBy:'level'" ng-click="vm.setMain(char, $event)">
+		  	<div>
+		  		<img class="char-img" src="{{char.thumbnailUrl}}"><br />
+		  		<span><strong>{{char.name}}</strong></span><br />
+		  		<span>Level {{char.level}}</span>
+		  	</div>
+		  </div>
+		  <div>
+		  	<button class="btn btn-default" ng-click="vm.submitInfo()">Submit</button>
+		  </div>
+		  <div class="error-text" ng-if="vm.errMsg">{{vm.errMsg}}</div>
+		</form>
+
+	</div>
 </div>

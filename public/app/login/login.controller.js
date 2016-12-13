@@ -6,7 +6,7 @@
     .controller('LoginController', LoginController);
 
   /** @ngInject */
-  function LoginController($state, $scope, $rootScope, $http, $filter, $location, loginService) {
+  function LoginController($state, $scope, $rootScope, $http, $filter, $location, loginService, charService) {
     var vm = this;
     vm.activate = activate;
 
@@ -14,16 +14,19 @@
 
     function activate() {
       loginService.user.getCurrentUser().then(function(res){
-        if (res.data.data.token) {
-          $rootScope.loggedInUser = res.data.data;
+        if (res.token) {
+          $rootScope.loggedInUser = res;
           checkGuild($rootScope.loggedInUser.token);
         }
+      });
+      charService.char.getClasses().then(function(res) {
+        $rootScope.classes = res.classes;
       });
     }
 
     function checkGuild(token) {
       loginService.user.getCharacters(token).then(function(res) {
-        var chars = res.data.characters;
+        var chars = res.characters;
         var inGuild = chars.filter(function(char) {
           return char.guild == "Illidari Shadows" && char.guildRealm =="Dalaran"
         });

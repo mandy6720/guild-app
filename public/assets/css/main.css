@@ -13,17 +13,18 @@ h1,h2,h3,h4,h5,h6 {
   font-weight: bold;
   display: inline-block;
   margin-top: 10px;
-
 }
-
-/* Login Styles */
-.login-background {
-  background-image: url('http://gameranx.com/wp-content/uploads/2016/03/World-of-Warcraft-Legion-4K-Wallpaper-1.jpg');
+.img-bg {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center; 
   background-size: cover;
   height: 100vh;
+}
+
+/* Login Styles */
+.login-background {
+  background-image: url('http://gameranx.com/wp-content/uploads/2016/03/World-of-Warcraft-Legion-4K-Wallpaper-1.jpg');
 }
 .login-title {
 	text-align: center;
@@ -52,6 +53,48 @@ h1,h2,h3,h4,h5,h6 {
   max-width:60%;
   max-height:60%;
 }
+
+/* Register Styles */
+.register-background {
+  background-image: url('https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSWCsDvIPtW0r-xAhYwZTLC8tm51saE9IXzc8O3XQQWfjhFvAzj');
+}
+.register-container {
+  text-align: center;
+  padding: 20px;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 90%;
+  height: 70%;
+  margin: auto;
+}
+.register-title {
+  margin-bottom: 25px;
+}
+.nickname-title {
+  margin: 18px;
+}
+.nickname-input {
+  max-width: 300px;
+  display: inline-block;
+}
+.char-info-tiles {
+  display: inline-block;
+  margin: 10px 7px 15px;
+  padding: 8px;
+}
+.char-img {
+  border-radius: 8px;
+}
+.selected-char {
+  background-color: #000;
+  border-radius: 5px;
+  border: 1px solid darkred; 
+}
+
 
 /* Dashboard Styles */
 .header {

@@ -13,17 +13,18 @@
     activate();
 
     function activate() {
-      console.log($rootScope.loggedInUser);
+      if (!$rootScope.loggedInUser) {
+        $state.go('login');
+      }
       loginService.user.getUserByBnetId($rootScope.loggedInUser.id).then(function(res) {
-        if (!res.data.length) {
+        if (!res.length) {
           $state.go('register');
         } else {
-          console.log(res.data[0]); 
+          console.log(res[0]); 
         }
       });
     }
 
-    
 
   }
 })();
