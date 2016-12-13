@@ -12,7 +12,7 @@ var BnetStrategy = require('passport-bnet').Strategy;
 var User = require('./node-api/models/user');
 
 var isAuthenticated = false;
-var user;
+var user, profile;
 
 
 // Passport config
@@ -38,6 +38,7 @@ passport.use(
     callbackURL: "https://illidari-shadows.herokuapp.com/auth/bnet/callback" },
     function(accessToken, refreshToken, profile, done) {
       process.nextTick(function () {
+      profile = profile;
       return done(null, profile);
     });
   })
@@ -144,7 +145,10 @@ router.route('/users/:user_name')
 router.route('/current_user')
   .get(function(req, res) {
     if (isAuthenticated) {
-      var data = user;
+      var data = {
+        user: user,
+        profile: profile
+      };
       res.send({data: data});
     } else {
       res.send({msg: 'no user'})
