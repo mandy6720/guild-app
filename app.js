@@ -11,7 +11,8 @@ var session = require('express-session');
 var BnetStrategy = require('passport-bnet').Strategy;
 var User = require('./node-api/models/user');
 
-var isAuthenticated = require('passport').isAuthenticated;
+var isAuthenticated = false;
+var user;
 
 
 // Passport config
@@ -94,6 +95,8 @@ app.get('/auth/bnet',
 app.get('/auth/bnet/callback',
   passport.authenticate('bnet', { failureRedirect: '/' }),
   function(req, res){
+    isAuthenticated = true;
+    user = req.user;
     res.redirect('/');
   });
 
@@ -141,7 +144,7 @@ router.route('/users/:user_name')
 router.route('/current_user')
   .get(function(req, res) {
     if (isAuthenticated) {
-      var data = req.user
+      var data = user;
       res.send({data: data});
     } else {
       res.send({msg: 'no user'})
