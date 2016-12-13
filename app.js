@@ -101,12 +101,6 @@ app.get('/auth/bnet/callback',
     res.redirect('/');
   });
 
-app.get('/logout', function (req, res){
-  req.session.destroy(function (err) {
-    res.redirect('/'); //Inside a callback… bulletproof!
-  });
-});
-
 // ROUTES
 
 // Users route
