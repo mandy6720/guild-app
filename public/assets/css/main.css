@@ -31,9 +31,15 @@ h1,h2,h3,h4,h5,h6 {
   height: 30%;
   margin: auto;
 }
-#inputEmail1, 
-#inputPassword1 {
-	background: rgba(0,0,0,.6);
-	color: #eee;
-	margin-bottom: 8px;
+.bnet-btn {
+  max-height: 50px;
+  max-width: 200px;
+  display: inline-block;
+  background-color: #1E293F;
+  padding: 10px;
+  border-radius: 5px;
+}
+.bnet-img {
+  max-width:60%;
+  max-height:60%;
 }
