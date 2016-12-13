@@ -173,10 +173,8 @@ router.route('/login')
 app.use(express.static(path.join(__dirname, 'public')));
 app.get("/", function(req, res){
   if(req.isAuthenticated()) {
-    req.session.destroy();
     res.sendFile(path.join(__dirname, 'public/dashboard/dashboard.html'));
   } else {
-    req.session.destroy();
     res.sendFile(path.join(__dirname, 'public/login/login.html'));
   }
 })
