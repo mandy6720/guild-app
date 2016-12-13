@@ -146,10 +146,9 @@ router.route('/current_user')
   .get(function(req, res) {
     if (isAuthenticated) {
       var data = {
-        user: user,
-        profile: profile
+        user: user
       };
-      res.send({data: data});
+      res.send({data: data.user});
     } else {
       res.send({msg: 'no user'})
     }
