@@ -145,10 +145,10 @@ router.route('/users/:user_id')
       if (err) return res.send(err);
       res.json({ message: 'Deleted' });
     });
-  });;
+  });
 
 // Current user
-router.route('/current_user')
+router.route('/login')
   .get(function(req, res) {
     if (isAuthenticated) {
       var data = {

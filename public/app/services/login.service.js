@@ -28,7 +28,7 @@
           return $http({
             method: 'GET',
             cache: true,
-            url: url + '/current_user'
+            url: url + '/login'
           });
         },
         getCharacters: function(token) {
