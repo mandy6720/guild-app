@@ -1,4 +1,4 @@
-<div class="login-background">
+<div class="login-background" ng-init="logged_in_user = {req.user}">
 	<div class="login-container">
 		<h3 class="login-title">Speak friend and enter</h3>
 		    <input type="text" class="form-control" id="inputEmail1" placeholder="Username" ng-model="vm.username">

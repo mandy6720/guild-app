@@ -89,7 +89,7 @@ app.get('/auth/bnet',
 app.get('/auth/bnet/callback',
   passport.authenticate('bnet', { failureRedirect: '/' }),
   function(req, res){
-    res.redirect('/success');
+    res.redirect('/');
   });
 
 //Test route

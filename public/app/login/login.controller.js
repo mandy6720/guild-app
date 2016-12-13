@@ -18,7 +18,8 @@
       var searchObject = $location.search();
       var path = $location.url();
       console.log('searchObject', searchObject);
-      console.log('path', path)
+      console.log('path', path);
+      console.log($scope.logged_in_user)
     }
 
     function login() {
