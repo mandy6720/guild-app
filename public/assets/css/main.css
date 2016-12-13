@@ -101,7 +101,9 @@ h1,h2,h3,h4,h5,h6 {
   position: fixed;
   top: 0;
   left: 0;
-  height: 50px;
+  width: 100vw;
+  height: 40px;
+  padding: 8px;
   background-color: rgba(150,150,150, .6);
 }
 .dashboard-container {

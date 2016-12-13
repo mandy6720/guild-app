@@ -16,13 +16,15 @@
       if (!$rootScope.loggedInUser) {
         $state.go('login');
       } else if ($rootScope.loggedInUser.isAuthorized) {
-        console.log($rootScope.loggedInUser)
+        console.log('created', $rootScope.loggedInUser);
+        vm.user = $rootScope.loggedInUser;
       } else {
         loginService.user.getUserByBnetId($rootScope.loggedInUser.id).then(function(res) {
           if (!res.length) {
             $state.go('register');
           } else {
-            console.log(res[0]); 
+            console.log('user', res[0]); 
+            vm.user = $rootScope.loggedInUser;
           }
         });
       }
