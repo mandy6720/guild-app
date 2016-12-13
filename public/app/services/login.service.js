@@ -13,6 +13,8 @@
       var users = {
 
         getAllUsers: function() {
+          var httpCache = $cacheFactory.get('$http');
+          httpCache.removeAll();
           return $q(function (resolve) {
               $http({
                 method: 'GET',
@@ -24,6 +26,8 @@
           });
         },
         getUserByBnetId: function(bnet_id) {
+          var httpCache = $cacheFactory.get('$http');
+          httpCache.removeAll();
           return $q(function (resolve) {
               $http({
                 method: 'GET',
@@ -35,6 +39,8 @@
           });
         },
         getCurrentUser: function() {
+          var httpCache = $cacheFactory.get('$http');
+          httpCache.removeAll();
           return $q(function (resolve) {
               $http({
                 method: 'GET',
@@ -46,6 +52,8 @@
           });
         },
         createUser: function(userObj) {
+          var httpCache = $cacheFactory.get('$http');
+          httpCache.removeAll();
           var user = JSON.stringify(userObj);
           return $http({
             method: 'POST', 

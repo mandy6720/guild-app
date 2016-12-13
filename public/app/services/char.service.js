@@ -13,6 +13,8 @@
       var char = {
 
         getClasses: function() {
+          var httpCache = $cacheFactory.get('$http');
+          httpCache.removeAll();
           return $q(function (resolve) {
               $http({
                 method: 'GET',
