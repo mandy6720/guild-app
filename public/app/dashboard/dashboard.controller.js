@@ -23,8 +23,8 @@
           if (!res.length) {
             $state.go('register');
           } else {
-            console.log('user', res[0]); 
-            vm.user = $rootScope.loggedInUser;
+            vm.user = res[0];
+            console.log('user', vm.user); 
           }
         });
       }
