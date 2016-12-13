@@ -69,7 +69,7 @@ app.use(session({
 // Initialize Passport!  Also use passport.session() middleware, to support
 // persistent login sessions (recommended).
 app.use(passport.initialize());
-app.use(passport.session());
+//app.use(passport.session());
 
 // Connect to DB
 mongoose.connect('mongodb://mandy6720:Boogers1@ds119598.mlab.com:19598/guildapp');
