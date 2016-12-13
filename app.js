@@ -19,13 +19,13 @@ var user, profile;
 var BNET_ID = process.env.BNET_ID;
 var BNET_SECRET = process.env.BNET_SECRET;
 
-// passport.serializeUser(function(user, done) {
-//   done(null, user);
-// });
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
 
-// passport.deserializeUser(function(obj, done) {
-//   done(null, obj);
-// });
+passport.deserializeUser(function(obj, done) {
+  done(null, obj);
+});
 
 
 
@@ -60,11 +60,11 @@ app.use(bodyParser.json());
 
 // configure Express
 app.use(cookieParser());
-// app.use(session({ 
-//   secret: 'blizzard',
-//   saveUninitialized: true,
-//   resave: true 
-// }));
+app.use(session({ 
+  secret: 'blizzard',
+  saveUninitialized: true,
+  resave: true 
+}));
 
 // Initialize Passport!  Also use passport.session() middleware, to support
 // persistent login sessions (recommended).
@@ -96,10 +96,19 @@ app.get('/auth/bnet',
 app.get('/auth/bnet/callback',
   passport.authenticate('bnet', { failureRedirect: '/' }),
   function(req, res){
+    req.session.destroy(function (err) {
+      res.redirect('/'); //Inside a callback… bulletproof!
+    });
     isAuthenticated = true;
     user = req.user;
     res.redirect('/');
   });
+
+app.get('/logout', function (req, res){
+  req.session.destroy(function (err) {
+    res.redirect('/'); //Inside a callback… bulletproof!
+  });
+});
 
 // ROUTES
 
