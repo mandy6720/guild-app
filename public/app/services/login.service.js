@@ -16,7 +16,7 @@
           return $q(function (resolve) {
               $http({
                 method: 'GET',
-                cache: true,
+                cache: false,
                 url: url + '/users'
               }).then(function(response) {
               resolve(response.data.data);
@@ -27,7 +27,7 @@
           return $q(function (resolve) {
               $http({
                 method: 'GET',
-                cache: true,
+                cache: false,
                 url: url + '/users/bnet_id/' + bnet_id
               }).then(function(response) {
               resolve(response.data);
@@ -38,7 +38,7 @@
           return $q(function (resolve) {
               $http({
                 method: 'GET',
-                cache: true,
+                cache: false,
                 url: url + '/login'
               }).then(function(response) {
               resolve(response.data.data);
@@ -60,7 +60,7 @@
           return $q(function (resolve) {
               $http({
                 method: 'GET',
-                cache: true,
+                cache: false,
                 url: bnetUrl + 'user/characters?access_token=' + token
               }).then(function(response) {
               resolve(response.data);
