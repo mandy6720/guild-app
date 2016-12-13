@@ -28,7 +28,7 @@
         var inGuild = chars.filter(function(char) {
           return char.guild == "Illidari Shadows" && char.guildRealm =="Dalara"
         });
-        if (inGuild) {
+        if (inGuild.length !== 0) {
           $rootScope.chars = inGuild;
           console.log(inGuild);
           $state.go('home');
