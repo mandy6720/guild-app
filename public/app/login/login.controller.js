@@ -19,7 +19,9 @@
       var path = $location.url();
       console.log('searchObject', searchObject);
       console.log('path', path);
-      console.log($scope.logged_in_user)
+      $http.get('/api/current_user').then(function(res){
+        console.log(res)
+      })
     }
 
     function login() {

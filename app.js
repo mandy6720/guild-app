@@ -132,6 +132,16 @@ router.route('/users/:user_name')
     });
   });
 
+// Current user
+router.route('/current_user')
+  .get(function(req, res) {
+    if (err) {
+        res.send(err);
+      }
+      res.json(req.user);
+    });
+  });
+
 //Serve files
 app.use(express.static(path.join(__dirname, 'public')));
 app.get("/", function(req, res){
