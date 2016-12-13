@@ -62,8 +62,8 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(session({ 
   secret: 'blizzard',
-  saveUninitialized: true,
-  resave: true 
+  saveUninitialized: false,
+  resave: false 
 }));
 
 // Initialize Passport!  Also use passport.session() middleware, to support
@@ -96,9 +96,6 @@ app.get('/auth/bnet',
 app.get('/auth/bnet/callback',
   passport.authenticate('bnet', { failureRedirect: '/' }),
   function(req, res){
-    req.session.destroy(function (err) {
-      res.redirect('/'); //Inside a callback… bulletproof!
-    });
     isAuthenticated = true;
     user = req.user;
     res.redirect('/');
