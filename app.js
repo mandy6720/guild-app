@@ -140,7 +140,7 @@ router.route('/current_user')
     if (err) {
       res.send(err);
     } else if (req.isAuthenticated()) {
-      var data = req.user;
+      var data = {data: req.user};
       res.json(data);
     }
   });
