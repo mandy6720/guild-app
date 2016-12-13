@@ -17,11 +17,11 @@
             url: url + '/users'
           });
         },
-        getUserByUsername: function(username) {
+        getUserByBnetId: function(bnet_id) {
           return $http({
             method: 'GET',
             cache: true,
-            url: url + '/users/' + username
+            url: url + '/users/bnet_id/' + bnet_id
           });
         },
         getCurrentUser: function() {

@@ -52,3 +52,16 @@ h1,h2,h3,h4,h5,h6 {
   max-width:60%;
   max-height:60%;
 }
+
+/* Dashboard Styles */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 50px;
+  background-color: rgba(150,150,150, .6);
+}
+.dashboard-container {
+  padding-top: 60px; 
+  text-align: center;
+}

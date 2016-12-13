@@ -128,7 +128,7 @@ router.route('/users')
     });
   });
 
-  // User by id
+// User by id
 router.route('/users/:user_id')
   .get(function(req, res) {
     User.find({_id: req.params.user_id}, function(err, user) {
@@ -147,7 +147,18 @@ router.route('/users/:user_id')
     });
   });
 
-// Current user
+// User by id
+router.route('/users/bnet_id:id')
+  .get(function(req, res) {
+    User.find({bnet_id: req.params.id}, function(err, user) {
+      if (err) {
+        res.send(err);
+      }
+      res.json(user);
+    });
+  });
+
+// Login
 router.route('/login')
   .get(function(req, res) {
     if (isAuthenticated) {

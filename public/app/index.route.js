@@ -17,6 +17,12 @@
       controller: 'LoginController',
       controllerAs: 'vm'
     })
+    .state('register', {
+      url: '/',
+      templateUrl: 'app/register/register.html',
+      controller: 'RegisterController',
+      controllerAs: 'vm'
+    })
     .state('home', {
       url: '/home',
       templateUrl: 'app/dashboard/dashboard.html',

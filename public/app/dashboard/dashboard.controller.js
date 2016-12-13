@@ -6,14 +6,19 @@
     .controller('DashboardController', DashboardController);
 
   /** @ngInject */
-  function DashboardController($scope, $rootScope, $http, $filter) {
+  function DashboardController($state, $rootScope, $filter, loginService) {
     var vm = this;
     vm.activate = activate;
 
     activate();
 
     function activate() {
-      console.log('dashboard')
+      console.log($rootScope.loggedInUser);
+      loginService.user.getUserByBnetId($rootScope.loggedInUser.id).then(function(res) {
+        console.log(res); 
+      }, function(res) {
+        $state.go('register');
+      });
     }
 
     
