@@ -11,6 +11,9 @@ var session = require('express-session');
 var BnetStrategy = require('passport-bnet').Strategy;
 var User = require('./node-api/models/user');
 
+var isAuthenticated = require('passport').isAuthenticated;
+
+
 // Passport config
 var BNET_ID = process.env.BNET_ID;
 var BNET_SECRET = process.env.BNET_SECRET;
@@ -135,15 +138,14 @@ router.route('/users/:user_name')
   });
 
 // Current user
-router.route('/current_user')
-  .get(function(req, res) {
-    if (err) {
-      res.send(err);
-    } else if (req.isAuthenticated()) {
-      var data = {data: req.user};
-      res.json(data);
-    }
-  });
+router.get('/current_user', isAuthenticated, function(req, res) {
+    var data = {
+        data: req.user
+    };
+    res.send({
+        data: data
+    });
+});
 
 //Serve files
 app.use(express.static(path.join(__dirname, 'public')));
@@ -154,5 +156,7 @@ app.get("/", function(req, res){
     res.sendFile(path.join(__dirname, 'public/login/login.html'));
   }
 })
+
+
 
 module.exports = app;
