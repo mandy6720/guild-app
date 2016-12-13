@@ -48,7 +48,8 @@
           profile: profile
         }
         loginService.user.createUser(userObj).then(function(res) {
-          console.log(res);
+          $rootScope.user = res;
+          $rootScope.isAuthorized = true;
           $state.go('home');
         });
       }

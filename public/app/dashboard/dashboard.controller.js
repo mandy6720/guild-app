@@ -15,15 +15,17 @@
     function activate() {
       if (!$rootScope.loggedInUser) {
         $state.go('login');
-      } 
-      loginService.user.getUserByBnetId($rootScope.loggedInUser.id).then(function(res) {
-        console.log(res)
-        if (!res.length) {
-          $state.go('register');
-        } else {
-          console.log(res[0]); 
-        }
-      });
+      } else if ($rootScope.loggedInUser.isAuthorized) {
+        console.log($rootScope.loggedInUser)
+      } else {
+        loginService.user.getUserByBnetId($rootScope.loggedInUser.id).then(function(res) {
+          if (!res.length) {
+            $state.go('register');
+          } else {
+            console.log(res[0]); 
+          }
+        });
+      }
     }
 
 
