@@ -90,7 +90,7 @@ router.use(function(req, res, next) {
     next();
 });
 
-app.get('/auth/bnet?foo=123',
+app.get('/auth/bnet',
   passport.authenticate('bnet'));
 
 app.get('/auth/bnet/callback',
