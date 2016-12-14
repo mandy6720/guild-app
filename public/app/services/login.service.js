@@ -11,7 +11,9 @@
       var apiKey = config.clientID;
 
       var users = {
-
+        authenticate: function(){
+          $window.location.href = config.baseUrl + '/auth/bnet?foo=123';
+        },
         getAllUsers: function() {
           var httpCache = $cacheFactory.get('$http');
           httpCache.removeAll();

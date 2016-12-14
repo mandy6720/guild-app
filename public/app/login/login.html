@@ -1,9 +1,8 @@
 <div class="login-background img-bg">
 	<div class="login-container">
 		<h3 class="login-title">Speak friend and enter</h3>
-	  <a href="/auth/bnet">
-	  	<div class="bnet-btn"><img class="bnet-img" src="./assets/images/game-logo-bnet.png"/></div>
-	  </a>
+	  	<div class="bnet-btn" ng-click="vm.authorize"><img class="bnet-img" src="./assets/images/game-logo-bnet.png"/></div>
+
 	  <span class="error-text" ng-if"vm.errMsg">{{vm.errMsg}}</span>
 	</div>
 </div>
