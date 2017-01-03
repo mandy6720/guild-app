@@ -16,6 +16,7 @@
       loginService.user.getCurrentUser().then(function(res){
         if (res.token) {
           $rootScope.loggedInUser = res;
+          console.log(res, $rootScope.loggedInUser)
           checkGuild($rootScope.loggedInUser.token);
         }
       });
@@ -28,7 +29,7 @@
       loginService.user.getCharacters(token).then(function(res) {
         var chars = res.characters;
         var inGuild = chars.filter(function(char) {
-          return char.guild == "Illidari Shadows" && char.guildRealm =="Dalaran"
+          return char.guild == "Forbidden Nights" && char.guildRealm =="Dalaran"
         });
         if (inGuild.length !== 0) {
           $rootScope.chars = inGuild;
