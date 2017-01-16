@@ -15,14 +15,14 @@
     activate();
 
     function activate() {
-      logIn();
+      setTimeout(logIn, 500);
     }
 
     function logIn() {
       loginService.user.getCurrentUser().then(function(res){
         if (res.token) {
           $rootScope.loggedInUser = res;
-          console.log(res, $rootScope.loggedInUser)
+          console.log($rootScope.loggedInUser)
           checkGuild($rootScope.loggedInUser.token);
         }
       });
