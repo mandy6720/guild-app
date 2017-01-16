@@ -14,6 +14,10 @@
     activate();
 
     function activate() {
+      console.log($rootScope)
+    }
+
+    function logIn() {
       loginService.user.getCurrentUser().then(function(res){
         if (res.token) {
           $rootScope.loggedInUser = res;
