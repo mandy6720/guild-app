@@ -9,6 +9,7 @@
   function LoginController($state, $scope, $rootScope, $http, $filter, $location, loginService, charService) {
     var vm = this;
     vm.activate = activate;
+    vm.logOut = logOut;
 
     activate();
 
@@ -38,6 +39,11 @@
           vm.errMsg = 'You don\'t have any characters in this guild';
         }
       })
+    }
+
+    function logOut() {
+      console.log('logging out')
+      $location.url('/logout');
     }
 
   }
