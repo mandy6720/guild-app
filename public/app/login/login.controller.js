@@ -11,6 +11,7 @@
     vm.activate = activate;
     vm.logOut = logOut;
 
+    logOut();
     activate();
 
     function activate() {
