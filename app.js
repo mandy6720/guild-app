@@ -170,11 +170,13 @@ router.route('/login')
   });
 
   // Logout
-app.get('/logout', function (req, res){
-  req.session.destroy(function (err) {
-    isAuthenticated = false;
-    user = null;
-    res.redirect('/'); //Inside a callback… bulletproof!
+router.route('/logout', function (req, res){
+  .get(function(req, res) {
+      req.session.destroy(function (err) {
+      isAuthenticated = false;
+      user = null;
+      res.send({data: 'nope'}) //Inside a callback… bulletproof!
+    });
   });
 });
 
