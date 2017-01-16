@@ -74,6 +74,19 @@
               resolve(response.data);
             });
           });
+        },
+        logOut: function() {
+          var httpCache = $cacheFactory.get('$http');
+          httpCache.removeAll();
+          return $q(function (resolve) {
+              $http({
+                method: 'GET',
+                cache: false,
+                url: url + '/logmeout'
+              }).then(function(response) {
+              resolve(response.data.data);
+            });
+          });
         }
 
       };
