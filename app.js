@@ -96,8 +96,6 @@ app.get('/auth/bnet',
 app.get('/auth/bnet/callback',
   passport.authenticate('bnet', { failureRedirect: '/' }),
   function(req, res){
-    isAuthenticated = true;
-    user = req.user;
     res.redirect('/');
   });
 
@@ -159,15 +157,22 @@ router.route('/users/bnet_id/:id')
 // Login
 router.route('/login')
   .get(function(req, res) {
-    if (isAuthenticated) {
+    if (req.isAuthenticated()) {
       var data = {
-        user: user
+        user: req
       };
       res.send({data: data.user});
     } else {
       res.send({data: 'nope'})
     }
   });
+
+// Logout
+app.get('/logout', function (req, res){
+  req.session.destroy(function (err) {
+    res.redirect('/'); //Inside a callback… bulletproof!
+  });
+});
 
 //Serve files
 app.use(express.static(path.join(__dirname, 'public')));
