@@ -178,16 +178,8 @@ router.route('/logmeout')
       if (err) {
         res.send(err)
       }
-      res.send({data: 'logged out'}); //Inside a callback… bulletproof!
+      res.redirect('/');
     });
-    // if (isAuthenticated) {
-    //   var data = {
-    //     user: user
-    //   };
-    //   res.send({data: data.user});
-    // } else {
-    //   res.send({data: 'nope'})
-    // }
   });
 
   // Logout

@@ -15,7 +15,7 @@
     activate();
 
     function activate() {
-      //setTimeout(logIn, 500);
+      setTimeout(logIn, 500);
     }
 
     function logIn() {
