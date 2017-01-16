@@ -62,8 +62,8 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(session({ 
   secret: 'blizzard',
-  saveUninitialized: false,
-  resave: false 
+  saveUninitialized: true,
+  resave: true 
 }));
 
 // Initialize Passport!  Also use passport.session() middleware, to support
