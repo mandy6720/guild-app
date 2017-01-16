@@ -14,7 +14,8 @@
     activate();
 
     function activate() {
-      console.log($rootScope)
+      console.log($rootScope);
+      logIn();
     }
 
     function logIn() {
