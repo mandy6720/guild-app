@@ -172,6 +172,8 @@ router.route('/login')
   // Logout
 app.get('/logout', function (req, res){
   req.session.destroy(function (err) {
+    isAuthenticated = false;
+    user = null;
     res.redirect('/'); //Inside a callback… bulletproof!
   });
 });
