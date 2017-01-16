@@ -48,10 +48,7 @@
 
     function logOut() {
       console.log('logging out');
-      loginService.user.logOut(function(res) {
-        console.log(res)
-      });
-      //$location.url('/logout');
+      $location.url('/logout');
     }
 
   }

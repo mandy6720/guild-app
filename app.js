@@ -170,19 +170,6 @@ router.route('/login')
   });
 
   // Logout
-router.route('/logmeout')
-  .get(function(req, res) {
-    req.session.destroy(function (err) {
-      isAuthenticated = false;
-      user = null;
-      if (err) {
-        res.send(err)
-      }
-      res.redirect('/');
-    });
-  });
-
-  // Logout
 app.get('/logout', function (req, res){
   req.session.destroy(function (err) {
     isAuthenticated = false;
