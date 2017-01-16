@@ -47,11 +47,8 @@
     }
 
     function logOut() {
-      console.log('logging out');
-      loginService.user.logOut().then(function(res){
-        console.log(res)
-      })
-      // $location.url('/logout');
+      console.log('logging out')
+      $location.url('/logout');
     }
 
   }
