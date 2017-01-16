@@ -84,7 +84,7 @@
                 cache: false,
                 url: url + '/logmeout'
               }).then(function(response) {
-              resolve(response.data.data);
+              resolve(response);
             });
           });
         }

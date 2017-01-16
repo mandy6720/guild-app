@@ -175,6 +175,9 @@ router.route('/logmeout')
     req.session.destroy(function (err) {
       isAuthenticated = false;
       user = null;
+      if (err) {
+        res.send(err)
+      }
       res.send({data: 'logged out'}); //Inside a callback… bulletproof!
     });
     // if (isAuthenticated) {
